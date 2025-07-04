@@ -31,3 +31,14 @@ remappings = [
 
 [fuzz]
 runs = 1000
+
+# Network configurations for LayerZero testnet deployment
+[rpc_endpoints]
+optimism-sepolia = "${RPC_URL_OP_SEPOLIA}"
+avalanche-fuji = "${RPC_URL_FUJI}"
+arbitrum-sepolia = "${RPC_URL_ARB_SEPOLIA}"
+
+[etherscan]
+optimism-sepolia = { key = "${ETHERSCAN_API_KEY_OPTIMISM}", url = "https://api-sepolia-optimism.etherscan.io/api" }
+avalanche-fuji = { key = "${ETHERSCAN_API_KEY_AVALANCHE}", url = "https://api-testnet.snowtrace.io/api" }
+arbitrum-sepolia = { key = "${ETHERSCAN_API_KEY_ARBITRUM}", url = "https://api-sepolia.arbiscan.io/api" }
