@@ -15,6 +15,9 @@ artifacts
 # foundry test compilation files
 out
 
+# Deployments folder
+deployments
+
 # pnpm
 pnpm-error.log
 
