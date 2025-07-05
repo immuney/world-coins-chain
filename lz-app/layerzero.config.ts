@@ -4,12 +4,12 @@ import { TwoWayConfig, generateConnectionsConfig } from '@layerzerolabs/metadata
 import { OAppEnforcedOption, OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
 
 const arbitrumContract: OmniPointHardhat = {
-    eid: EndpointId.ARBITRUM_V2_TESTNET,
+    eid: EndpointId.ARBSEP_V2_TESTNET,
     contractName: 'MyOApp',
 }
 
 const baseContract: OmniPointHardhat = {
-    eid: EndpointId.BASE_V2_TESTNET,
+    eid: EndpointId.BASESEP_V2_TESTNET,
     contractName: 'MyOApp',
 }
 
@@ -26,9 +26,8 @@ const EVM_ENFORCED_OPTIONS: OAppEnforcedOption[] = [
 ]
 
 // To connect all the above chains to each other, we need the following pathways:
-// Optimism <-> Avalanche
-// Optimism <-> Arbitrum
-// Avalanche <-> Arbitrum
+// Base <-> Arbitrum
+// Arbitrum <-> Base
 
 // With the config generator, pathways declared are automatically bidirectional
 // i.e. if you declare A,B there's no need to declare B,A
@@ -39,13 +38,6 @@ const pathways: TwoWayConfig[] = [
         [['LayerZero Labs'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
         [1, 1], // [A to B confirmations, B to A confirmations]
         [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS], // Chain B enforcedOptions, Chain A enforcedOptions
-    ],
-    [
-        baseContract, // Chain A contract
-        arbitrumContract, // Chain C contract
-        [['LayerZero Labs'], []], // [ requiredDVN[], [ optionalDVN[], threshold ] ]
-        [1, 1], // [A to B confirmations, B to A confirmations]
-        [EVM_ENFORCED_OPTIONS, EVM_ENFORCED_OPTIONS], // Chain C enforcedOptions, Chain A enforcedOptions
     ]
 ]
 

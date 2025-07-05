@@ -78,6 +78,17 @@
   }
 }
 
+/* iOS overscroll behavior fix for mobile-first design */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* Prevent scroll bounce on iOS WebView */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
 @config "../../tailwind.config.ts";
 
 
